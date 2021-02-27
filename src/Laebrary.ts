@@ -1,5 +1,6 @@
-import {IBook, IReservation, IUser} from "./contracts";
-import {DataGenerator} from "./DataGenerator";
+import { IBook, IReservation, IUser } from "./contracts";
+import { DataGenerator } from "./DataGenerator";
+import format from "date-fns/format";
 
 export class Laebrary {
     private books: IBook[];
@@ -22,6 +23,11 @@ export class Laebrary {
         console.log("AVAILABLE BOOKS:", availableBooks);
     }
 
+    test() {
+        
+    }
+
+
     logReservations(): void {
         // Get books for which there's an active reservation
         const reservations = this.getActiveReservations()
@@ -29,7 +35,7 @@ export class Laebrary {
                 {
                     book: this.books.find(book => book.id === reservation.bookId),
                     reservedBy: this.users.find(user => user.id === reservation.userId),
-                    reservedFrom: reservation.startDate.toISOString()
+                    reservedFrom: format(reservation.startDate, "dd-MM-yyyy")
                 }
             ));
 

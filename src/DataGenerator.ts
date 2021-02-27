@@ -1,4 +1,5 @@
 import {Book, IBook, IReservation, IUser, Reservation, User} from "./contracts";
+import zonedTimeToUtc from 'date-fns-tz/zonedTimeToUtc';
 
 export class DataGenerator {
     static createBooks(): IBook[] {
@@ -8,7 +9,7 @@ export class DataGenerator {
                 "Hooked: How to Build Habit-Forming Products",
                 "Nir Eyal",
                 256,
-                new Date(2014, 11, 6),
+                zonedTimeToUtc('2014-12-06', 'Europe/Brussels'),
                 "978-0241184837",
             ),
             new Book(
@@ -16,14 +17,14 @@ export class DataGenerator {
                 "The Industries of the Future",
                 "Alec Ross",
                 321,
-                new Date(2016, 2, 2),
+                zonedTimeToUtc('2016-03-02', 'Europe/Brussels'),
             ),
             new Book(
                 3,
                 "The Inevitable: Understanding the 12 Technological Forces That Will Shape Our Future",
                 "Kevin Kelly",
                 334,
-                new Date(2016, 6, 7),
+                zonedTimeToUtc('2016-07-07', 'Europe/Brussels'),
             ),
         ];
     }
@@ -59,21 +60,21 @@ export class DataGenerator {
                 1,
                 1,
                 1,
-                new Date(2018, 4, 24),
-                new Date(2018, 5, 24),
+                zonedTimeToUtc('2021-02-01', 'Europe/Brussels'),
+                zonedTimeToUtc('2021-03-01', 'Europe/Brussels'),
             ),
             new Reservation(
                 2,
                 1,
                 4,
-                new Date(2018, 5, 25),
+                zonedTimeToUtc('2021-06-25', 'Europe/Brussels'),
             ),
             new Reservation(
                 3,
                 2,
                 3,
-                new Date(2018, 4, 6),
-                new Date(2018, 5, 16),
+                zonedTimeToUtc('2021-01-01', 'Europe/Brussels'),
+                zonedTimeToUtc('2021-02-01', 'Europe/Brussels'),
             ),
         ]
     }
