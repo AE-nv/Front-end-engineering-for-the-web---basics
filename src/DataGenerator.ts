@@ -1,9 +1,4 @@
-import {Book} from "./contracts/Book";
-import {User} from "./contracts/User";
-import {Reservation} from "./contracts/Reservation";
-import {IBook} from "./contracts/IBook";
-import {IUser} from "./contracts/IUser";
-import {IReservation} from "./contracts/IReservation";
+import {Book, IBook, IReservation, IUser, Reservation, User} from "./contracts";
 
 export class DataGenerator {
     static createBooks(): IBook[] {
@@ -21,15 +16,15 @@ export class DataGenerator {
                 "The Industries of the Future",
                 "Alec Ross",
                 321,
-                new Date(2016, 2, 2)
+                new Date(2016, 2, 2),
             ),
             new Book(
                 3,
                 "The Inevitable: Understanding the 12 Technological Forces That Will Shape Our Future",
                 "Kevin Kelly",
                 334,
-                new Date(2016, 6, 7)
-            )
+                new Date(2016, 6, 7),
+            ),
         ];
     }
 
@@ -38,25 +33,24 @@ export class DataGenerator {
             new User(
                 1,
                 "Glenn",
-                "Dejaeger"
+                "Dejaeger",
             ),
             new User(
                 2,
                 "Jorg",
-                "Wyckmans"
+                "Wyckmans",
             ),
             new User(
                 3,
                 "Cynric",
-                "Huys"
+                "Huys",
             ),
             new User(
                 4,
                 "Thomas",
-                "Van Cleemput"
-            )
-
-        ]
+                "Van Cleemput",
+            ),
+        ];
     }
 
     static createReservations(): IReservation[] {
@@ -66,21 +60,21 @@ export class DataGenerator {
                 1,
                 1,
                 new Date(2018, 4, 24),
-                new Date(2018, 5, 24)
+                new Date(2018, 5, 24),
             ),
             new Reservation(
                 2,
                 1,
                 4,
-                new Date(2018, 5, 25)
+                new Date(2018, 5, 25),
             ),
             new Reservation(
                 3,
                 2,
                 3,
                 new Date(2018, 4, 6),
-                new Date(2018, 5, 16)
-            )
+                new Date(2018, 5, 16),
+            ),
         ]
     }
 }

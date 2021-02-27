@@ -1,6 +1,4 @@
-import {IBook} from "./contracts/IBook";
-import {IUser} from "./contracts/IUser";
-import {IReservation} from "./contracts/IReservation";
+import {IBook, IReservation, IUser} from "./contracts";
 import {DataGenerator} from "./DataGenerator";
 
 export class Laebrary {
@@ -21,11 +19,7 @@ export class Laebrary {
                     .includes(book.id)
             );
 
-        console.log("AVAILABLE BOOKS:");
-
-        availableBooks.forEach(book => {
-            console.log(`${book.title}`);
-        });
+        console.log("AVAILABLE BOOKS:", availableBooks);
     }
 
     logReservations(): void {
@@ -34,15 +28,12 @@ export class Laebrary {
             .map(reservation => (
                 {
                     book: this.books.find(book => book.id === reservation.bookId),
-                    reservedBy: this.users.find(user => user.id === reservation.userId)
+                    reservedBy: this.users.find(user => user.id === reservation.userId),
+                    reservedFrom: reservation.startDate.toISOString()
                 }
             ));
 
-        console.log("RESERVATIONS:");
-
-        reservations.forEach(reservation => {
-            console.log(`${reservation.book.title} - ${reservation.reservedBy.firstName} ${reservation.reservedBy.lastName}`);
-        });
+        console.log("RESERVATIONS:", reservations);
     }
 
     private createDummyData(): void {
