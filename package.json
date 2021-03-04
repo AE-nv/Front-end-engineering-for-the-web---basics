@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "lint": "tslint -p tsconfig.json",
-    "prestart": "tsc",
-    "start": "node dist/index.js",
-    "poststart": "rimraf dist"
+    "preStart": "tsc",
+    "Start": "node dist/index.js",
+    "postStart": "rimraf dist"
   },
   "repository": {
     "type": "git",
