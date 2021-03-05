@@ -4,11 +4,19 @@ var chatRoom = {
     messages: [],
     participants: [],
     addChatMessage(message) {
-        const username = message.username;
-        var body = message.message;
-        var item = document.createElement('li');
-        item.textContent = body;
+        const item = document.createElement('li');
+
+        const username = document.createElement('span');
+        username.textContent = message.username;
+        username.className = "message__username";
+
+        const body = document.createElement('span');
+        body.textContent = message.message;
+        body.className = "message__body";
+
         messages.appendChild(item);
+        item.appendChild(username);
+        item.appendChild(body);
         window.scrollTo(0, document.body.scrollHeight);
     }
 };

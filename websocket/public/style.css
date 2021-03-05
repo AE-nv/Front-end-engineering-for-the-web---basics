@@ -63,3 +63,7 @@ body {
 .chat {
     display: none;
 }
+.message__username {
+    color: gray;
+    margin-right: 15px;
+}
