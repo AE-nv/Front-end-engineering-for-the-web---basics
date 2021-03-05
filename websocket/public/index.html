@@ -15,12 +15,18 @@
     </form>
   </div>
   <ul id="messages" style="display: none;"></ul>
-  <form id="chat-form" class="form" action="" style="display: none;">
-    <input id="input" autocomplete="off" /><button>Send</button>
+  <form id="chat-form" class="form message-form" action="" style="display: none;">
+    <div>
+      <input id="input" autocomplete="off" /><button>Send</button>
+    </div>
+    <div>
+      <span>Number of participants</span>
+      <span id="counter">0</span>
+    </div>
   </form>
 </body>
 
 <script src="/socket.io/socket.io.js"></script>
-<script src="/script.js" ></script>
+<script src="/script.js"></script>
 
 </html>

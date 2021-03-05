@@ -18,6 +18,18 @@ var chatRoom = {
         item.appendChild(username);
         item.appendChild(body);
         window.scrollTo(0, document.body.scrollHeight);
+    },
+    initializeParticipants(participants) {
+        this.participants = participants;
+        this.updateNumberOfParticipants();
+    },
+    addParticipant(username) {
+        this.participants.push(username);
+        this.updateNumberOfParticipants();  
+    },
+    updateNumberOfParticipants() {
+        const numberOfParticipants = document.getElementById('counter');
+        numberOfParticipants.textContent = this.participants.length;    
     }
 };
 
@@ -40,7 +52,7 @@ function hideUsernameForm() {
     const messages = document.getElementById('messages');
     messages.style.display = 'block';
     const chatForm = document.getElementById('chat-form');
-    chatForm.style.display = 'block';
+    chatForm.style.display = 'flex';
 }
 
 var usernameForm = document.getElementById('username-form');
@@ -69,3 +81,11 @@ chatForm.addEventListener('submit', function (e) {
 socket.on('chat message', function (msg) {
     chatRoom.addChatMessage(msg);
 });
+
+socket.on('joined chatroom', function (username) {
+    chatRoom.addParticipant(username);
+})
+
+socket.on('participants in room', function (participants) {
+    chatRoom.participants = participants;
+})

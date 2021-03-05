@@ -9,8 +9,15 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
 });
 
+const participants = [];
+
 io.on('connection', (socket) => {
     console.log('a user connected');
+    io.emit('participants in room', participants);
+    socket.on('login', (username) => {
+        participants.push(username);
+        io.emit('joined chatroom', username);
+    });
     socket.on('disconnect', () => {
         console.log('user disconnected');
     });

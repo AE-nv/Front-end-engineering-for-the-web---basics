@@ -67,3 +67,7 @@ body {
     color: gray;
     margin-right: 15px;
 }
+.message-form {
+    display: flex;
+    justify-content: space-between;
+}
