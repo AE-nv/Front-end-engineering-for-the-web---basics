@@ -19,12 +19,6 @@ export class Laebrary {
                     .map(reservation => reservation.bookId)
                     .includes(book.id)
             );
-
-        console.log("AVAILABLE BOOKS:", availableBooks);
-    }
-
-    test() {
-        
     }
 
 
@@ -38,8 +32,6 @@ export class Laebrary {
                     reservedFrom: format(reservation.startDate, "dd-MM-yyyy")
                 }
             ));
-
-        console.log("RESERVATIONS:", reservations);
     }
 
     private createDummyData(): void {
@@ -48,26 +40,27 @@ export class Laebrary {
         this.reservations = DataGenerator.createReservations();
     }
 
-    private getActiveReservations() {
+    private getActiveReservations(): IReservation[] {
         return this.reservations.filter(reservation =>
             reservation.startDate && !reservation.endDate
         );
     }
 
-    private isBookAvailable(book: IBook){
+    private isBookAvailable(book: IBook): boolean {
         return this.books
-            .filter(book =>
+            .filter(b =>
                 !this.getActiveReservations()
                     .map(reservation => reservation.bookId)
-                    .includes(book.id)
+                    .includes(b.id)
             ).map(b => book.id).indexOf(book.id) >= 0;
     }
 
-    private reserveBook(book: IBook){
-        if(this.isBookAvailable(book))
+    private reserveBook(book: IBook): void {
+        if (this.isBookAvailable(book)) {
             this.reservations.push({
                 bookId: book.id,
                 startDate: new Date()
             } as IReservation)
+        }
     }
 }

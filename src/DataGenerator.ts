@@ -29,7 +29,7 @@ export class DataGenerator {
         ];
     }
 
-    static createUsers(){
+    static createUsers(): User[] {
         return [
             new User(
                 1,
