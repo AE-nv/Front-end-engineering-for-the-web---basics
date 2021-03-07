@@ -53,4 +53,21 @@ export class Laebrary {
             reservation.startDate && !reservation.endDate
         );
     }
+
+    private isBookAvailable(book: IBook){
+        return this.books
+            .filter(book =>
+                !this.getActiveReservations()
+                    .map(reservation => reservation.bookId)
+                    .includes(book.id)
+            ).map(b => book.id).indexOf(book.id) >= 0;
+    }
+
+    private reserveBook(book: IBook){
+        if(this.isBookAvailable(book))
+            this.reservations.push({
+                bookId: book.id,
+                startDate: new Date()
+            } as IReservation)
+    }
 }

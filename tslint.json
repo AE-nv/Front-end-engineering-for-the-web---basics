@@ -24,7 +24,14 @@
       ]
     },
     "ordered-imports": false,
-    "trailing-comma": false
+    "trailing-comma": false,
+    "whitespace": [true, "check-branch", "check-operator", "check-typecast"],
+    "typedef": [
+      true,
+      "call-signature",
+      "property-declaration"
+    ],
+    "curly": true
   },
   "jsRules": {
     "max-line-length": {
