@@ -45,13 +45,13 @@ class Laebrary {
             },
             {
                 id: 2,
-                firstName: "Jorg",
-                lastName: "Wyckmans"
+                firstName: "Axel",
+                lastName: "Lemmens"
             },
             {
                 id: 3,
-                firstName: "Cynric",
-                lastName: "Huys"
+                firstName: "Aäron",
+                lastName: "Noels"
             },
             {
                 id: 4,
