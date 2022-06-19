@@ -42,13 +42,13 @@ export class DataGenerator {
             ),
             new User(
                 2,
-                "Jorg",
-                "Wyckmans"
+                "Axel",
+                "Lemmens"
             ),
             new User(
                 3,
-                "Cynric",
-                "Huys"
+                "Aäron",
+                "Noels"
             ),
             new User(
                 4,
